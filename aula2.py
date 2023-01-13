@@ -1,12 +1,12 @@
 import pandas as pd 
 import plotly.express as px
 
-#df = pd.read_csv('telecom_users.csv')
+#df = pd.read_csv('input/aula2/telecom_users.csv')
 
 #print(df.keys())
 #exit()
-# df = pd.read_csv('telecom_users.csv', sheet_name="telecom_users") # nome da planilha ou número
-df = pd.read_csv('telecom_users.csv',index_col=[0]).reset_index(drop=True) # exclui a coluna de índice
+# df = pd.read_csv('input/aula2/telecom_users.csv', sheet_name="telecom_users") # nome da planilha ou número
+df = pd.read_csv('input/aula2/telecom_users.csv',index_col=[0]).reset_index(drop=True) # exclui a coluna de índice
 
 
 #print(df) # preview da tabela
@@ -32,7 +32,7 @@ graph = px.histogram(df, x="Aposentado", color="Churn", text_auto=True)
 # comparar todas as colunas com outra
 for col in df.columns:
 	graph = px.histogram(df, x=col, color="Churn", text_auto=True)
-	graph.write_html(('gráficos/'+col+'.html'), auto_open=False) # gera o resultado em html e abre no navegador
+	graph.write_html(('output/aula2/'+col+'.html'), auto_open=False) # gera o resultado em html e abre no navegador
 
 #graph.show() # só funciona no jupyter
 

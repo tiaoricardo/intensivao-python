@@ -16,12 +16,12 @@ quotation = browser.find_element('xpath',xdolar).get_attribute('data-value')
 
 print(quotation)
 
-df = pd.read_excel('Produtos.xlsx')
+df = pd.read_excel('input/aula3/Produtos.xlsx')
 
 df.loc[df["Moeda"] == 'Dólar', 'Cotação'] = float(quotation)
 df['Preço de Compra'] = df['Cotação'] * df['Preço Original']
 df['Preço de Venda'] = df['Preço de Compra'] * df['Margem']
 
-df.to_excel('Produtos_novo.xlsx', index=False)
+df.to_excel('output/aula3/Produtos_novo.xlsx', index=False)
 
 browser.quit()
